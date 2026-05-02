@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmmanuelMassillonFunding.Opps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0d;
+  --cream: #f5f0e8;
+  --bone: #e8e1d4;
+  --mid: #9c9485;
+  --pale: #cfc8ba;
+  --purple: #6B4FBB;
+  --rose: #C2445A;
+  --gold: #C8963C;
+  --teal: #1E8C72;
+  --slate: #5F7080;
+  --urgent: #B03030;
+  --upcoming: #8B5E1A;
+  --rolling: #2A5F4E;
+  --open: #1A4FA0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ─── SITE TITLE BAR ─── */
+.site-bar {
+  background: var(--ink);
+  padding: 8px 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-bar-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.site-bar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.site-bar-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--pale);
+  text-decoration: none;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: color .15s;
+}
+.site-bar-links a:hover { color: var(--gold); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  min-height: 480px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.hero-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+  opacity: .75;
+  min-height: 480px;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%) contrast(1.05);
+  transition: opacity .4s;
+}
+.hero-img:hover { opacity: .9; filter: grayscale(0); }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  background: linear-gradient(90deg, rgba(15,14,13,0) 0%, rgba(15,14,13,.15) 100%);
+}
+.hero-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  width: fit-content;
+}
+.hero-badge.b2 { background: var(--rose); color: #fff; }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 7vw, 88px);
+  color: var(--cream);
+  line-height: .95;
+  letter-spacing: .02em;
+  margin-bottom: .5rem;
+}
+.hero-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--pale);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 12px;
+}
+.hero-stat-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.h-stat {
+  text-align: center;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 10px 16px;
+  min-width: 70px;
+}
+.h-stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.h-stat-l {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--pale);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ─── EXHIBITION CAPTION ─── */
+.exh-caption {
+  background: var(--ink);
+  border-top: 2px solid var(--gold);
+  padding: 10px 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.exh-caption-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--pale);
+  letter-spacing: .06em;
+}
+.exh-caption-text strong { color: var(--gold); }
+.exh-caption-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+/* ─── PRESS STRIP ─── */
+.press-section {
+  border-bottom: 1px solid var(--bone);
+  padding: 0;
+  overflow: hidden;
+}
+.press-label {
+  padding: 10px 2rem 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border-bottom: 1px solid var(--bone);
+}
+.press-scroll {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pale) var(--cream);
+}
+.press-scroll::-webkit-scrollbar { height: 3px; }
+.press-scroll::-webkit-scrollbar-thumb { background: var(--pale); }
+.press-item {
+  flex-shrink: 0;
+  width: 200px;
+  scroll-snap-align: start;
+  border-right: 1px solid var(--bone);
+  cursor: pointer;
+  overflow: hidden;
+}
+.press-item:hover .press-thumb { transform: scale(1.04); }
+.press-thumb-wrap { overflow: hidden; height: 140px; }
+.press-thumb {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%);
+  transition: transform .35s ease;
+  background: var(--bone);
+}
+.press-cap {
+  padding: 6px 10px 8px;
+  background: var(--cream);
+}
+.press-cap-t {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  line-height: 1.4;
+  display: block;
+}
+.press-cap-s {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  color: var(--mid);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ─── MAIN ─── */
+.main-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+/* ─── FILTER BAR ─── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--bone);
+  align-items: center;
+}
+.filter-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-right: 6px;
+}
+.f-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 6px 14px;
+  border: 1.5px solid var(--pale);
+  background: transparent;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all .12s;
+}
+.f-btn:hover { border-color: var(--ink); color: var(--ink); }
+.f-btn.active { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.f-btn.act-open { background: var(--open); border-color: var(--open); color: #fff; }
+.f-btn.act-upcoming { background: var(--upcoming); border-color: var(--upcoming); color: #fff; }
+.f-btn.act-rolling { background: var(--rolling); border-color: var(--rolling); color: #fff; }
+.f-btn.act-dc { background: var(--slate); border-color: var(--slate); color: #fff; }
+
+/* ─── SECTION DIVIDER ─── */
+.month-div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.5rem 0 .875rem;
+}
+.month-div-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--mid);
+  white-space: nowrap;
+}
+.month-div-line {
+  flex: 1;
+  height: 1px;
+  background: var(--bone);
+}
+
+/* ─── CARDS ─── */
+.cards { display: flex; flex-direction: column; gap: 0; }
+
+.card {
+  border: 1px solid var(--bone);
+  border-left: 4px solid var(--ink);
+  margin-bottom: 8px;
+  background: #fff;
+  transition: box-shadow .15s, border-color .15s;
+}
+.card:hover { box-shadow: 3px 3px 0 var(--bone); }
+.card.s-open { border-left-color: var(--open); }
+.card.s-upcoming { border-left-color: var(--gold); }
+.card.s-rolling { border-left-color: var(--teal); }
+.card.s-dc { border-left-color: var(--slate); }
+.card.s-intl { border-left-color: var(--purple); }
+
+.card-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: block;
+}
+.card-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.card-toggle {
+  width: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--bone);
+  transition: background .12s;
+}
+.card-btn:hover .card-toggle { background: var(--cream); }
+.toggle-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .18s;
+}
+.card.s-open .toggle-circle { border-color: var(--open); }
+.card.s-upcoming .toggle-circle { border-color: var(--gold); }
+.card.s-rolling .toggle-circle { border-color: var(--teal); }
+.card.s-dc .toggle-circle { border-color: var(--slate); }
+.card.s-intl .toggle-circle { border-color: var(--purple); }
+
+.toggle-circle svg { transition: transform .2s; }
+.toggle-circle.open { background: var(--ink); border-color: var(--ink); }
+.toggle-circle.open svg { transform: rotate(180deg); }
+.toggle-circle.open path { stroke: #fff; }
+
+.card-main {
+  flex: 1;
+  padding: .875rem 1.25rem;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  min-width: 0;
+}
+.card-info { flex: 1; min-width: 0; }
+.card-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 2px 8px;
+  border: 1px solid;
+}
+.tag-intl { border-color: var(--purple); color: var(--purple); }
+.tag-dc { border-color: var(--slate); color: var(--slate); }
+.tag-us { border-color: var(--slate); color: var(--slate); }
+.tag-uk { border-color: #888; color: #666; }
+.card-org {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+}
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.card-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: var(--ink);
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+.status-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 3px 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sp-open { background: #dceeff; color: var(--open); border: 1px solid #a8ccff; }
+.sp-upcoming { background: #fdf1dc; color: var(--upcoming); border: 1px solid #f5d08a; }
+.sp-rolling { background: #d8f2ec; color: var(--rolling); border: 1px solid #8fd5c2; }
+.sp-tbc { background: #f3f3f3; color: var(--mid); border: 1px solid var(--pale); }
+.sp-hot { background: #fde8e8; color: var(--urgent); border: 1px solid #f5aaaa; }
+
+/* ─── CARD BODY ─── */
+.card-body {
+  display: none;
+  border-top: 1px dashed var(--bone);
+}
+.card-body.open { display: block; }
+.body-inner { padding: 1.25rem 1.25rem 1.25rem 1.25rem; }
+.body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 580px) { .body-grid { grid-template-columns: 1fr; } }
+.body-sec-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--mid);
+  display: block;
+  margin-bottom: .5rem;
+}
+.body-sec p, .body-sec li {
+  font-size: 12.5px;
+  font-family: 'Libre Baskerville', serif;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.body-sec ul { padding-left: 1.1rem; }
+.body-sec li { margin-bottom: 3px; }
+.body-sec .mats {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  margin-top: .5rem;
+  line-height: 1.5;
+}
+.why-box {
+  background: var(--ink);
+  padding: .875rem 1.25rem;
+  margin-bottom: .875rem;
+}
+.why-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: .4rem;
+}
+.why-box p {
+  font-size: 12.5px;
+  color: var(--bone);
+  line-height: 1.7;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+}
+
+/* Work thumbs */
+.work-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.wthumb {
+  width: 88px;
+  height: 66px;
+  object-fit: cover;
+  display: block;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color .12s, transform .15s;
+  background: var(--bone);
+}
+.wthumb:hover { border-color: var(--gold); transform: scale(1.04); }
+.wthumb-cap {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  color: var(--mid);
+  display: block;
+  width: 88px;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.apply-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.apply-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 8px 18px;
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+  display: inline-block;
+  transition: background .12s;
+  border: 2px solid var(--ink);
+}
+.apply-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.info-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pale);
+  padding-bottom: 1px;
+}
+.info-link:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ─── LIGHTBOX ─── */
+.lb {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,9,8,.95);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.lb.show { display: flex; }
+.lb img {
+  max-width: 88vw;
+  max-height: 72vh;
+  object-fit: contain;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.lb-cap {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--pale);
+  margin-top: .75rem;
+  text-align: center;
+  max-width: 560px;
+  line-height: 1.5;
+}
+.lb-src {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--mid);
+  margin-top: 4px;
+}
+.lb-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,.25);
+  color: var(--pale);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  padding: 5px 12px;
+  cursor: pointer;
+  letter-spacing: .06em;
+}
+.lb-close:hover { background: rgba(255,255,255,.08); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 2px solid var(--gold);
+}
+.footer-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: .05em;
+}
+.footer-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  line-height: 1.6;
+}
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+.footer-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--pale);
+  text-decoration: none;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: color .12s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-gallery { display: none; }
+  .hero-content { padding: 2rem 1.25rem; background: none; }
+  .hero-title { font-size: 52px; }
+  .main-wrap { padding: 1.25rem 1rem 3rem; }
+  .site-bar-links { display: none; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card { animation: fadeUp .25s ease both; }
+.hero-badges { animation: fadeUp .4s .1s ease both; }
+.hero-title { animation: fadeUp .4s .2s ease both; }
+.hero-subtitle { animation: fadeUp .4s .3s ease both; }
+.hero-stat-row { animation: fadeUp .4s .4s ease both; }
+</style>
+</head>
+<body>
+
+<!-- SITE BAR -->
+<nav class="site-bar">
+  <span class="site-bar-name">EmmanuelMassillonFunding.Opps</span>
+  <div class="site-bar-links">
+    <a href="https://www.emmanuel-massillon.com" target="_blank">Artist Website</a>
+    <a href="https://bremondcapela.com" target="_blank">Bremond Capela</a>
+    <a href="https://www.forbes.com/30-under-30" target="_blank">Forbes 30U30</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-gallery">
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787625071-YX7NKSW6PIVOR8QLNKB1/_DSC6068.jpg" alt="System Structures, Bremond Capela, Paris 2026" loading="eager">
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787627727-NEZUOBK3M8T74PDTP2Q7/_DSC6080.jpg" alt="System Structures installation view" loading="eager">
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787628602-N8Z9LDTC8A4XTK6NSE8Q/_DSC6081.jpg" alt="System Structures detail" loading="eager">
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787639995-VOOTWKP5S16XQCZTBGZN/_DSC6117.jpg" alt="System Structures gallery view" loading="eager">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <div class="hero-badge">★ Forbes 30 Under 30 — 2025</div>
+      <div class="hero-badge b2">Solo Exhibition: System Structures — Bremond Capela, Paris 2026</div>
+    </div>
+    <h1 class="hero-title">Emmanuel<br>Massillon</h1>
+    <p class="hero-subtitle">
+      Conceptual Artist · Washington D.C.<br>
+      Painting · Sculpture · Performance · Sound · Installation
+    </p>
+    <div class="hero-stat-row">
+      <div class="h-stat"><span class="h-stat-n" id="sc">—</span><span class="h-stat-l">Active</span></div>
+      <div class="h-stat"><span class="h-stat-n">$380K+</span><span class="h-stat-l">Potential</span></div>
+      <div class="h-stat"><span class="h-stat-n" id="oc">—</span><span class="h-stat-l">Open Now</span></div>
+      <div class="h-stat"><span class="h-stat-n">4</span><span class="h-stat-l">Collections</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="exh-caption">
+  <span class="exh-caption-text"><strong>System Structures</strong> — Bremond Capela, Paris, France, 2026</span>
+  <span class="exh-caption-dot"></span>
+  <span class="exh-caption-text">13 rue Béranger, 75003 Paris</span>
+  <span class="exh-caption-dot"></span>
+  <span class="exh-caption-text">Photography: <strong>emmanuel-massillon.com</strong></span>
+  <span class="exh-caption-dot"></span>
+  <span class="exh-caption-text">Museum Collections: <strong>Baltimore Museum of Art · Virginia Museum of Fine Arts · Flint Institute of Arts · C21 Museum</strong></span>
+</div>
+
+<!-- PRESS STRIP -->
+<section class="press-section">
+  <div class="press-label">// Selected press & exhibition documentation</div>
+  <div class="press-scroll" id="press-strip"></div>
+</section>
+
+<!-- MAIN -->
+<main class="main-wrap">
+  <div class="filter-bar" id="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="f-btn active" data-f="all">All</button>
+    <button class="f-btn" data-f="open">Open Now</button>
+    <button class="f-btn" data-f="upcoming">Upcoming</button>
+    <button class="f-btn" data-f="rolling">Rolling</button>
+    <button class="f-btn" data-f="dc">D.C. Local</button>
+    <button class="f-btn" data-f="intl">International</button>
+  </div>
+  <div class="cards" id="cards"></div>
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLB(event)">
+  <button class="lb-close" onclick="closeLB()">Close ×</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+  <div class="lb-src" id="lb-src"></div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-name">EmmanuelMassillonFunding.Opps</div>
+    <div class="footer-note" style="margin-top:4px">Compiled May 2026 · Active deadlines only · Verify all details at source before applying</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.emmanuel-massillon.com" target="_blank">Artist Site</a>
+    <a href="https://bremondcapela.com" target="_blank">Bremond Capela</a>
+    <a href="https://www.artsy.net/artist/emmanuel-massillon" target="_blank">Artsy</a>
+    <a href="https://elephant.art/emmanuel-massillon-masters-conspiracy/" target="_blank">Elephant</a>
+  </div>
+</footer>
+
+<script>
+const NOW = new Date('2026-05-01');
+
+const PRESS = [
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787625071-YX7NKSW6PIVOR8QLNKB1/_DSC6068.jpg",title:"System Structures, Bremond Capela, Paris, 2026",src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787625071-YX7NKSW6PIVOR8QLNKB1/_DSC6068.jpg",source:"emmanuel-massillon.com"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787627727-NEZUOBK3M8T74PDTP2Q7/_DSC6080.jpg",title:"System Structures (detail), Bremond Capela, Paris, 2026",source:"emmanuel-massillon.com"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787628602-N8Z9LDTC8A4XTK6NSE8Q/_DSC6081.jpg",title:"System Structures (installation view), Bremond Capela, Paris, 2026",source:"emmanuel-massillon.com"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787639995-VOOTWKP5S16XQCZTBGZN/_DSC6117.jpg",title:"System Structures, Bremond Capela, Paris, 2026",source:"emmanuel-massillon.com"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787694672-H1EEHO5LDQACTRDIR2PV/_DSC6084.jpg",title:"System Structures (gallery view), Bremond Capela, Paris, 2026",source:"emmanuel-massillon.com"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/Courtesy-of-the-Artist-and-UTA-Artist-Space.-Photo-by-Anthony-Hilliard-scaled.jpg",title:"Some Believe It To Be Conspiracy — Opening, UTA Artist Space, Atlanta, 2023",source:"elephant.art"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/Photo-by-Mike-Jensen_A6867-1-scaled.jpg",title:"Black Savior, 2023 — photo collage & acrylic on canvas. Photo: Mike Jensen",source:"elephant.art"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/3B7A6731-864x920.jpg",title:"Installation view, Some Believe It To Be Conspiracy, Atlanta, 2023",source:"elephant.art"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/3B7A6759.jpg",title:"(Jab) Tuskegee Experiment, 2023 — assemblage",source:"elephant.art"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/3B7A6681-864x920.jpg",title:"Dog Food (Fire Swarm), 2023 — mixed media",source:"elephant.art"},
+  {src:"https://elephant.art/wp-content/uploads/2023/10/3B7A6778.jpg",title:"Birds Birds, 2023",source:"elephant.art"},
+  {src:"https://burnaway.org/wp-content/uploads/2023/11/3B7A6667-667x1000.jpg",title:"Black Savior (full view), 2023 — 72×52 in. Photo: Mike Jensen",source:"burnaway.org"},
+  {src:"https://burnaway.org/wp-content/uploads/2023/11/3B7A6723-667x1000.jpg",title:"Powder Head, 2023 — wood, baking soda, earth pigments. Photo: Mike Jensen",source:"burnaway.org"},
+  {src:"https://burnaway.org/wp-content/uploads/2023/11/20231007-untitled-shoot-5.jpg",title:"Imprints of Connection performance, Pullman Yard, Atlanta, 2023",source:"burnaway.org"},
+  {src:"https://burnaway.org/wp-content/uploads/2023/11/20231007-untitled-shoot-2.jpg",title:"Imprints of Connection — land art / dirt bike performance, Atlanta, 2023",source:"burnaway.org"},
+  {src:"https://burnaway.org/wp-content/uploads/2023/11/Photo-by-Mike-Jensen_A6859.jpg",title:"Installation view, Some Believe It To Be Conspiracy. Photo: Mike Jensen",source:"burnaway.org"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1653233139807-G037FS8UMINKT4RJGE8U/GJC_EM_Wait_HD+%2821%29.jpeg",title:"Wait, Just Hear Me Out! — Galerie Julien Cadet, Paris, 2022",source:"emmanuel-massillon.com"},
+  {src:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1653232886551-ZAQX0UFPUWM2PZCSSBYU/GJC_EM_Wait_HD+%282%29.jpeg",title:"Wait, Just Hear Me Out! (detail) — Galerie Julien Cadet, Paris, 2022",source:"emmanuel-massillon.com"},
+];
+
+// Build press strip
+const strip = document.getElementById('press-strip');
+PRESS.forEach(p => {
+  const el = document.createElement('div');
+  el.className = 'press-item';
+  const short = p.title.length > 52 ? p.title.slice(0,49)+'…' : p.title;
+  el.innerHTML = `<div class="press-thumb-wrap"><img class="press-thumb" src="${p.src}" alt="${p.title}" loading="lazy"></div><div class="press-cap"><span class="press-cap-t">${short}</span><span class="press-cap-s">${p.source}</span></div>`;
+  el.onclick = () => openLB(p);
+  strip.appendChild(el);
+});
+
+const WORKS = {
+  perf: [
+    {s:"https://burnaway.org/wp-content/uploads/2023/11/20231007-untitled-shoot-5.jpg",c:"Imprints of Connection, 2023",sl:"burnaway.org"},
+    {s:"https://burnaway.org/wp-content/uploads/2023/11/20231007-untitled-shoot-2.jpg",c:"Dirt bike land art performance",sl:"burnaway.org"},
+  ],
+  assembly: [
+    {s:"https://elephant.art/wp-content/uploads/2023/10/3B7A6731-864x920.jpg",c:"Installation view, UTA Artist Space",sl:"elephant.art"},
+    {s:"https://elephant.art/wp-content/uploads/2023/10/3B7A6759.jpg",c:"(Jab) Tuskegee Experiment, 2023",sl:"elephant.art"},
+    {s:"https://elephant.art/wp-content/uploads/2023/10/3B7A6778.jpg",c:"Birds Birds, 2023",sl:"elephant.art"},
+  ],
+  paint: [
+    {s:"https://burnaway.org/wp-content/uploads/2023/11/3B7A6667-667x1000.jpg",c:"Black Savior, 2023",sl:"burnaway.org"},
+    {s:"https://elephant.art/wp-content/uploads/2023/10/3B7A6681-864x920.jpg",c:"Dog Food (Fire Swarm), 2023",sl:"elephant.art"},
+  ],
+  sculpt: [
+    {s:"https://burnaway.org/wp-content/uploads/2023/11/3B7A6723-667x1000.jpg",c:"Powder Head, 2023",sl:"burnaway.org"},
+    {s:"https://elephant.art/wp-content/uploads/2023/10/Photo-by-Mike-Jensen_A6853-scaled.jpg",c:"Exhibition view, UTA Artist Space",sl:"elephant.art"},
+  ],
+  paris: [
+    {s:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787625071-YX7NKSW6PIVOR8QLNKB1/_DSC6068.jpg",c:"System Structures, Bremond Capela, Paris 2026",sl:"emmanuel-massillon.com"},
+    {s:"https://images.squarespace-cdn.com/content/v1/5cae6128348cd9690a28b423/1775787627727-NEZUOBK3M8T74PDTP2Q7/_DSC6080.jpg",c:"System Structures (detail), Paris 2026",sl:"emmanuel-massillon.com"},
+  ],
+};
+
+function thumbHTML(wkey) {
+  const imgs = WORKS[wkey] || [];
+  if (!imgs.length) return '';
+  return `<div style="margin-bottom:.875rem"><span class="body-sec-label">// Related work from press</span><div class="work-row">${imgs.map(w=>`<div><img class="wthumb" src="${w.s}" alt="${w.c}" loading="lazy" onclick='openLB({src:"${w.s}",title:"${w.c.replace(/'/g,"\\'")}",source:"${w.sl}"})'><span class="wthumb-cap">${w.c}</span></div>`).join('')}</div></div>`;
+}
+
+const DATA = [
+  // FROM SPREADSHEET — OPEN NOW
+  {id:'s1', title:'Future Generation Art Prize', org:'PinchukArtCentre', scope:'International', amount:'$100,000 ($60K cash + $40K production)', deadline:'2026-05-14', status:'open', statusLabel:'Open — closes May 14',
+   overview:'Biennial prize for artists aged 18–35 working internationally. Shortlist announced Nov 2026; exhibition 2027. Russian/Belarusian citizens ineligible.',
+   reqs:['Ages 18–35 at time of application','All nationalities eligible (excl. Russian/Belarusian)','Online submission: project proposal + CV + work documentation','No entry fee'],
+   mats:'Online portal at futuregenerationartprize.org. CV, biography, work samples, project statement.',
+   why:"At 27, Massillon precisely meets the age requirement. His museum acquisitions (BMA, VMFA), international exhibition record across Paris, London, Rome, Shanghai, and Atlanta, and Forbes 30 Under 30 recognition position him among the strongest possible applicants. The prize's interest in artists addressing urgent global issues maps directly to his practice.",
+   portal:'https://futuregenerationartprize.org/en/', info:'https://futuregenerationartprize.org/en/', works:'paris', tags:['intl']},
+
+  {id:'s2', title:'Hopper Prize', org:'Hopper Prize', scope:'International', amount:'$4,500 (×2) + $1,000 (×4)', deadline:'2026-05-12', status:'open', statusLabel:'Open — closes May 12',
+   overview:'Bi-annual prize open to visual artists at all career stages. Spring 2026 cycle open now; Fall 2026 deadline approx. Nov 2026. Entry fee applies.',
+   reqs:['Visual artists at any career stage','$40 entry fee per 10 images','Online submission via Hopper Prize portal','No citizenship restrictions'],
+   mats:'Up to 10 images of recent work, CV, artist statement.',
+   why:"Massillon's striking visual language — dog food paintings, taxidermy assemblages, large-scale mixed media canvases — photographs exceptionally well, making this juried image-based award a strong fit. Low barrier to entry relative to potential recognition.",
+   portal:'https://hopperprize.org/', info:'https://hopperprize.org/about-hopper-prize/', works:'paint', tags:['intl']},
+
+  {id:'s3', title:'Lumen Prize — Art & Technology', org:'Lumen', scope:'International', amount:'$15,000 Gold + three $5,000 category prizes', deadline:'2026-05-23', status:'open', statusLabel:'Open — closes May 23',
+   overview:'15th annual prize celebrating art made with technology. Awards ceremony Nov 2026 at Kunstsilo Museum, Norway. Early bird entry available.',
+   reqs:['Artists working with technology as primary or secondary medium','$45/artwork entry fee ($35 early bird through Feb 17)','Submit work samples + description of technology used','All nationalities eligible'],
+   mats:'Artwork files/video, artist statement, technology description, CV.',
+   why:"Massillon's stated interest in sound art and digital/technological integration in installation work positions him for this prize's expanded categories. His critical practice would resonate with the prize's emphasis on art using technology to engage social and political questions.",
+   portal:'https://lumenprize.org/', info:'https://lumenprize.org/about-the-prize', works:'perf', tags:['intl']},
+
+  // FROM ORIGINAL LIST
+  {id:'1', title:'Tulsa Artist Fellowship 2027–2029', org:'George Kaiser Family Foundation', scope:'US National', amount:'$150,000 + $36K housing + studio', deadline:'2026-05-07', status:'open', statusLabel:'Open — closes May 7',
+   overview:'One of the most generous place-based fellowships in the U.S. Up to 10 artists receive 3 years of support, private studio, and resources to develop community-engaged work in Tulsa.',
+   reqs:['5+ years professional experience; must be 25+','U.S. citizen / permanent resident / O-1 visa holder','Must commit to living and working in Tulsa for 3 full years','Practice Statement (500w), Fellowship Statement (500w), 3-year project proposal','CV, bio (250w), work samples, proposed $150K budget'],
+   mats:'Online portal. CV, bio, statements, 3-yr proposal, visual/media samples, proposed budget.',
+   why:"Massillon's museum collections (BMA, VMFA, FIA), international exhibitions, and work on race and incarceration match TAF's community-engaged mandate. 5-year experience requirement is met. The scale of support would enable an ambitious multi-year project.",
+   portal:'https://www.tulsaartistfellowship.org/award', info:'https://www.tulsaartistfellowship.org/award', works:'assembly', tags:['us']},
+
+  {id:'2', title:'Center for Craft — Craft Archive Fellowship', org:'Center for Craft', scope:'US National', amount:'$5,000', deadline:'2026-05-15', status:'open', statusLabel:'Open — closes May 15',
+   overview:'Four $5,000 fellowships for independent archival research on underrepresented craft histories in the U.S. Artist-researchers explicitly welcome. Culminates in a Hyperallergic article.',
+   reqs:['Must earn taxable income in the U.S.','Based anywhere in the country','Research proposal on underrepresented craft histories','Culminating article for Hyperallergic'],
+   mats:'Research proposal, CV, writing samples if available.',
+   why:"Massillon's found objects, hand-carved wood, food products, and cultural memorabilia — all tactile, historically situated materials — resonate directly with craft archive research. A proposal on Black material culture and DIY assembly traditions would be a natural fit.",
+   portal:'https://www.centerforcraft.org/fellowships', info:'https://www.centerforcraft.org/fellowships', works:'sculpt', tags:['us']},
+
+  {id:'3', title:'Abbey Mural Prize', org:'National Academy', scope:'US National', amount:'$10,000–$40,000', deadline:'2026-05-18', status:'open', statusLabel:'Open — closes May 18',
+   overview:'Juried grants for creation and restoration of public murals in the U.S. or territories. Artists may be based internationally.',
+   reqs:['Mural must be located in U.S., Tribal Nations, or U.S. territories','Artist can be based anywhere','Project proposal for public mural creation or restoration','Images of past public or mural work'],
+   mats:'Project proposal, site info, past public art images, CV.',
+   why:"Large-scale assemblage and installation practice extends naturally to public mural. Museum collection holdings (BMA, VMFA) demonstrate the professional standing this prize requires. Race, subculture, and community memory translate powerfully to public-facing wall work.",
+   portal:'https://www.nationalacademy.org/abbey-mural-prize', info:'https://www.nationalacademy.org/abbey-mural-prize', works:'paint', tags:['us']},
+
+  {id:'4', title:'Dairy Arts Center — 2027 Call for Exhibitions', org:'Dairy Arts Center', scope:'US National', amount:'Exhibition production support', deadline:'2026-06-30', status:'open', statusLabel:'Open — Jun 30 deadline',
+   overview:'Bold, socially engaged exhibition proposals for 2027. Prioritizes storytelling, cultural inquiry, and experimental material approaches. Selected artists work with curator Stella Witcher.',
+   reqs:['Exhibition proposal: project, themes, audience engagement','Artist CV and supporting documentation','Collaborative development with in-house curator'],
+   mats:'Exhibition proposal, CV, work documentation.',
+   why:"Some Believe It To Be Conspiracy, Cell 72, As Clear As Mud — all exactly what this program describes. BMA and VMFA collection holdings and press from Frieze and Elephant strengthen an application significantly.",
+   portal:'https://www.thedairy.org/visual-arts', info:'https://www.thedairy.org/visual-arts', works:'assembly', tags:['us']},
+
+  {id:'5', title:'XENO Prize for Artists\' Books', org:'Franklin Furnace', scope:'International', amount:'$5,000', deadline:'2026-07-04', status:'open', statusLabel:'Open — Jul 4 deadline',
+   overview:'Awards $5,000 to publish an artist\'s book on book banning and burning in an edition of 100+ copies. All disciplines eligible.',
+   reqs:['Artists 18+, all disciplines','Proposal for artist\'s book on book banning/burning theme','Edition of at least 100 copies','Apply via Submittable'],
+   mats:'Submittable: project proposal + work samples.',
+   why:"Street vernacular, cultural subtext, and documentation of suppressed Black subcultures run through Massillon's entire practice. An artist's book extending his zine-making and essay writing into a publishable statement on censored cultural narratives is a direct fit.",
+   portal:'https://franklinfurnacearchive.submittable.com/submit', info:'https://franklinfurnace.org', works:'perf', tags:['intl']},
+
+  // UPCOMING
+  {id:'6', title:'CIRCA Prize 2026', org:'CIRCA Art', scope:'International', amount:'£30,000 winner + £10,000 public vote', deadline:'2026-06-20', status:'upcoming', statusLabel:'TBC — 2026 call expected ~May',
+   overview:'Annual prize for artists working across all disciplines. 2025 deadline was Jun 20; 2026 call expected ~May 2026. Confirm at circa.art.',
+   reqs:['All nationalities, all career stages','No entry fee','Online submission via CIRCA portal','Confirm 2026 cycle announcement at circa.art'],
+   mats:'Work samples, artist statement, CV. Confirm 2026 requirements at source.',
+   why:"Massillon's high-profile international exhibition record (Guardian, Frieze, Elephant coverage), Forbes 30 Under 30 selection, and museum collections make him a highly competitive CIRCA applicant. The prize's public digital broadcast element aligns with his interest in widening access to Black cultural narratives.",
+   portal:'https://circa.art/circa-prize/', info:'https://circa.art/circa-prize/', works:'paris', tags:['intl']},
+
+  {id:'7', title:'DC CAH Fellowship (AHFP) — FY27', org:'DC Commission on the Arts & Humanities', scope:'DC Local', amount:'$10,000', deadline:'2026-06-27', status:'upcoming', statusLabel:'FY27 RFA not yet posted',
+   overview:'Annual fellowship for DC-based artists. FY26 deadline was Jun 26, 2025; FY27 expected similar timeframe. DC residents only.',
+   reqs:['Must be a DC resident','Active professional arts practice','Apply via CAH Grant Application Portal','Confirm FY27 RFA at dcarts.dc.gov'],
+   mats:'Application via CAH portal. Confirm FY27 requirements when posted.',
+   why:"Massillon was born and raised in D.C. and is a past CAH grant recipient (2020, $25,000). A fellowship application is a natural follow-up to that relationship, demonstrating continued growth — including Forbes 30 Under 30 and Paris solo exhibition — since the last CAH award.",
+   portal:'https://dcarts.dc.gov/page/fy26-ahfp-application-and-submission-information', info:'https://dcarts.dc.gov/grants/arts-and-humanities-fellowship-program', works:'assembly', tags:['dc']},
+
+  {id:'8', title:'Guggenheim Fellowship 2027', org:'John Simon Guggenheim Memorial Foundation', scope:'US National', amount:'~$49,000 avg', deadline:'2026-09-01', status:'upcoming', statusLabel:'Upcoming — opens late summer 2026',
+   overview:'2026 competition closed Sep 16, 2025. 2027 competition opens late summer 2026. U.S./Canada citizens or permanent residents only.',
+   reqs:['U.S. or Canadian citizen or permanent resident','Demonstrated exceptional capacity for productive scholarship or exceptional creative ability','Application via competition.gf.org — confirm 2027 open date','No application fee'],
+   mats:'Application form, work samples, project statement, 3–5 references (solicited by foundation).',
+   why:"Museum acquisitions at BMA, VMFA, FIA, and C21; Forbes 30 Under 30; Paris solo at Bremond Capela; and critical coverage in Frieze, Elephant, and the Guardian collectively represent the kind of demonstrated exceptional capacity the Guggenheim Foundation seeks. Begin cultivating references now for the 2027 competition.",
+   portal:'https://competition.gf.org/', info:'https://www.gf.org/program/how-to-apply', works:'paris', tags:['us']},
+
+  {id:'9', title:'Wherewithal Project Grant', org:'WPA (Washington Project for the Arts)', scope:'DC Local', amount:'$7,500', deadline:'2026-11-01', status:'upcoming', statusLabel:'Upcoming — ~Oct–Nov 2026',
+   overview:'Annual grant for DC-area artists. 2025 deadline Nov 14, 2025 (portal opened Oct 1). Expect 2026 deadline ~Oct–Nov 2026. Apply for Project Grant OR Research Grant, not both.',
+   reqs:['DC-area artists only','Project-based grant application','Apply through WPA portal — confirm 2026 cycle dates','No entry fee'],
+   mats:'Project proposal, CV, work documentation. Confirm 2026 requirements at wherewithalgrants.org.',
+   why:"As a D.C.-born artist with deep roots in the community, Massillon is an ideal WPA candidate. A project grant could support fabrication or materials for a new body of work connected to D.C.'s cultural history and community narratives.",
+   portal:'https://www.wherewithalgrants.org/', info:'https://www.wherewithalgrants.org/', works:'assembly', tags:['dc']},
+
+  {id:'10', title:'Wherewithal Research Grant', org:'WPA (Washington Project for the Arts)', scope:'DC Local', amount:'$5,000', deadline:'2026-11-01', status:'upcoming', statusLabel:'Upcoming — ~Oct–Nov 2026',
+   overview:'Research-focused companion to the WPA Project Grant. Same annual cycle. Apply for one or the other — not both. DC-area artists only.',
+   reqs:['DC-area artists only','Research-focused proposal','Same cycle as Project Grant — apply for one only','Confirm 2026 dates at wherewithalgrants.org'],
+   mats:'Research proposal, CV, writing samples.',
+   why:"Massillon's ongoing research into Black craft traditions, material culture, and the intersection of African American music with visual language is ideally suited to a research grant application. Consider applying for this if a materials-heavy Project Grant isn't the priority in a given cycle.",
+   portal:'https://www.wherewithalgrants.org/', info:'https://www.wherewithalgrants.org/', works:'sculpt', tags:['dc']},
+
+  {id:'11', title:'MacDowell Fellowship (Spring/Summer 2027)', org:'MacDowell', scope:'US National', amount:'Free residency + need-based stipend + travel', deadline:'2026-09-10', status:'upcoming', statusLabel:'Upcoming — opens Aug 15, 2026',
+   overview:'Prestigious residency with exclusive studio, accommodations, and meals for up to 8 weeks. No fees. Sole criterion is artistic excellence.',
+   reqs:['Apply via MacDowell online portal','Not enrolled in a degree program during residency','May apply once every 2 years','Work samples, project proposal, professional achievements'],
+   mats:'Work samples (images/video), project proposal, professional achievements.',
+   why:"International exhibitions, museum acquisitions, and Guardian/Frieze/Elephant press demonstrate the artistic excellence MacDowell seeks. Residency time would support new sculptural work and preparation for future international projects.",
+   portal:'https://www.macdowell.org/apply/apply-for-fellowship', info:'https://www.macdowell.org/', works:'paris', tags:['us']},
+
+  // ROLLING
+  {id:'r1', title:'Artadia Award', org:'Artadia', scope:'US National (7 cities)', amount:'$15,000', deadline:'Rolling', status:'rolling', statusLabel:'Rolling by city — next Oct 1–Nov 1, 2026',
+   overview:'7 cities: Atlanta, Boston, Chicago, Houston, LA, NYC, SF Bay Area. Each city open ~1 month/year. Next known window: Oct 1–Nov 1, 2026.',
+   reqs:['Must be based in one of the 7 eligible cities','Check individual city schedules at artadia.org','Online application, no entry fee','Studio visit with jurors for finalists'],
+   mats:'Application form, artist statement, CV, work samples.',
+   why:"Massillon's NYC exhibition history (Swivel Gallery, The Housing Gallery, Eric Firestone Gallery) and SVA education make him eligible in multiple cities. His Artsy features, Elephant review, and museum collections align with Artadia's emphasis on critical recognition.",
+   portal:'https://artadia.org/awards/', info:'https://artadia.org/awards/', works:'paint', tags:['us']},
+
+  {id:'r2', title:'Pollock-Krasner Foundation Grant', org:'Pollock-Krasner Foundation', scope:'International', amount:'Up to $50,000', deadline:'Rolling', status:'rolling', statusLabel:'Rolling — year-round review',
+   overview:'Unrestricted grants for painters, sculptors, and artists on paper. Supports new work, studio space, exhibition preparation, and living expenses.',
+   reqs:['Actively exhibiting in professional galleries and museums','Cover letter, CV with full exhibition record','10 digital images of current work + identification list','Demonstrable financial need'],
+   mats:'Online form, cover letter, exhibition CV, 10 digital work images.',
+   why:"Museum collections (BMA, VMFA, FIA, C21) and international gallery exhibitions across Paris, London, Rome, Shanghai, and Atlanta demonstrate exactly the active exhibition record PKF requires. Apply at any point during the year.",
+   portal:'https://www.pkf.org/apply', info:'https://www.pkf.org/', works:'assembly', tags:['intl']},
+
+  {id:'r3', title:'USArtists International (USAI)', org:'Mid Atlantic Arts Foundation', scope:'US National', amount:'Project-based (travel + fees + production)', deadline:'2027-02-25', status:'upcoming', statusLabel:'Feb 25, 2027 deadline',
+   overview:'Supports U.S.-based artists presenting at international festivals and venues. Requires a confirmed international engagement.',
+   reqs:['Must be U.S.-based','Confirmed invitation from international festival or venue required','Live performance/presentation component required','Apply as individual — no fiscal sponsorship'],
+   mats:'Application form, proof of international invitation, project budget, CV.',
+   why:"With active gallery relationships at Bremond Capela Paris, PM/AM London, Harlesden High Street, and Andrea Festa Fine Art Rome, Massillon is perfectly positioned to apply for USAI support on any confirmed future international presentation.",
+   portal:'https://www.midatlanticarts.org/opportunity/usartists-international/', info:'https://www.midatlanticarts.org/', works:'paris', tags:['us']},
+
+  {id:'r4', title:'Harvestworks Artist-in-Residence', org:'Harvestworks', scope:'US National', amount:'$5,000 commission', deadline:'2026-12-15', status:'upcoming', statusLabel:'~Dec 2026 (confirm annually)',
+   overview:'Supports artists at the intersection of art, sound, and technology. Each artist receives a $5,000 commission to produce a new integrated work at NYC\'s T.E.A.M. Lab.',
+   reqs:['Work must integrate art, sound, and/or technology','Proposal for a new work','Apply directly to Harvestworks'],
+   mats:'Project proposal, CV, work samples emphasizing sound/technology.',
+   why:"Black musical traditions (Jazz, R&B, Rap) as structural influences on Massillon's visual language, and his stated interest in sound art, make this residency a natural fit. A sound-integrated installation or performance would extend both practices simultaneously.",
+   portal:'https://www.harvestworks.org/residencies', info:'https://www.harvestworks.org/', works:'perf', tags:['us']},
+];
+
+const STATUS_ORDER = {open:0, upcoming:1, rolling:2};
+function sortData(items) {
+  return [...items].sort((a,b) => {
+    const sa = STATUS_ORDER[a.status] ?? 3;
+    const sb = STATUS_ORDER[b.status] ?? 3;
+    if (sa !== sb) return sa - sb;
+    if (a.deadline === 'Rolling' && b.deadline === 'Rolling') return 0;
+    if (a.deadline === 'Rolling') return 1;
+    if (b.deadline === 'Rolling') return -1;
+    return new Date(a.deadline) - new Date(b.deadline);
+  });
+}
+
+function pillClass(s, dl) {
+  if (s === 'rolling') return 'sp-rolling';
+  if (s === 'upcoming') return 'sp-upcoming';
+  if (s === 'open') {
+    if (dl !== 'Rolling') {
+      const diff = (new Date(dl)-NOW)/864e5;
+      if (diff <= 7) return 'sp-hot';
+    }
+    return 'sp-open';
+  }
+  return 'sp-tbc';
+}
+function statusClass(s) {
+  return {open:'s-open', upcoming:'s-upcoming', rolling:'s-rolling', dc:'s-dc'}[s] || 's-intl';
+}
+function scopeTagClass(scope) {
+  if (scope.includes('DC') || scope.includes('Local')) return 'tag-dc';
+  if (scope.includes('International') || scope.includes('UK')) return 'tag-intl';
+  return 'tag-us';
+}
+
+function render(filter) {
+  let items = DATA;
+  if (filter === 'open') items = DATA.filter(d => d.status === 'open');
+  else if (filter === 'upcoming') items = DATA.filter(d => d.status === 'upcoming');
+  else if (filter === 'rolling') items = DATA.filter(d => d.status === 'rolling');
+  else if (filter === 'dc') items = DATA.filter(d => d.tags.includes('dc'));
+  else if (filter === 'intl') items = DATA.filter(d => d.tags.includes('intl'));
+
+  document.getElementById('sc').textContent = items.length;
+  document.getElementById('oc').textContent = items.filter(d=>d.status==='open').length;
+
+  const sorted = sortData(items);
+  let html = ''; let prevGroup = '';
+  sorted.forEach((o, i) => {
+    const group = o.status === 'rolling' ? 'Rolling / Ongoing' : o.status === 'open' ? 'Open Now' : 'Upcoming';
+    if (group !== prevGroup) {
+      html += `<div class="month-div"><span class="month-div-text">${group}</span><div class="month-div-line"></div></div>`;
+      prevGroup = group;
+    }
+    const sc = statusClass(o.status);
+    const pc = pillClass(o.status, o.deadline);
+    const tc = scopeTagClass(o.scope);
+    html += `<div class="card ${sc}" id="card-${o.id}" style="animation-delay:${i*0.04}s">
+      <button class="card-btn" onclick="tog('${o.id}')">
+        <div class="card-row">
+          <div class="card-toggle"><div class="toggle-circle" id="tc-${o.id}">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div></div>
+          <div class="card-main">
+            <div class="card-info">
+              <div class="card-title">${o.title}</div>
+              <div class="card-meta">
+                <span class="tag ${tc}">${o.scope}</span>
+                <span class="card-org">${o.org}</span>
+              </div>
+            </div>
+            <div class="card-right">
+              <span class="card-amount">${o.amount}</span>
+              <span class="status-pill ${pc}">${o.statusLabel}</span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <div class="card-body" id="body-${o.id}">
+        <div class="body-inner">
+          <div class="body-grid">
+            <div class="body-sec"><span class="body-sec-label">Overview</span><p>${o.overview}</p></div>
+            <div class="body-sec"><span class="body-sec-label">Requirements</span><ul>${o.reqs.map(r=>`<li>${r}</li>`).join('')}</ul><p class="mats"><strong>Materials:</strong> ${o.mats}</p></div>
+          </div>
+          ${thumbHTML(o.works)}
+          <div class="why-box"><span class="why-label">// Why this fits Emmanuel's practice</span><p>${o.why}</p></div>
+          <div class="apply-row">
+            <a href="${o.portal}" target="_blank" class="apply-btn">Apply →</a>
+            ${o.info !== o.portal ? `<a href="${o.info}" target="_blank" class="info-link">Program info</a>` : ''}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('cards').innerHTML = html || `<div style="text-align:center;padding:3rem;font-family:'Space Mono',monospace;font-size:12px;color:var(--mid)">No opportunities match this filter.</div>`;
+}
+
+function tog(id) {
+  const body = document.getElementById('body-'+id);
+  const tc = document.getElementById('tc-'+id);
+  body.classList.toggle('open');
+  tc.classList.toggle('open');
+}
+
+// Filter buttons
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const btn = e.target.closest('.f-btn');
+  if (!btn) return;
+  document.querySelectorAll('.f-btn').forEach(b => {
+    b.className = 'f-btn';
+  });
+  const f = btn.dataset.f;
+  const cls = {all:'active',open:'act-open',upcoming:'act-upcoming',rolling:'act-rolling',dc:'act-dc',intl:'active'}[f]||'active';
+  btn.classList.add(cls);
+  render(f);
+});
+
+// Lightbox
+function openLB(p) {
+  document.getElementById('lb-img').src = p.src || p.s;
+  document.getElementById('lb-cap').textContent = p.title || p.c;
+  document.getElementById('lb-src').textContent = 'Source: ' + (p.source || p.sl);
+  document.getElementById('lb').classList.add('show');
+}
+function closeLB(e) {
+  if (!e || e.target === document.getElementById('lb') || e.target.classList.contains('lb-close'))
+    document.getElementById('lb').classList.remove('show');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lb').classList.remove('show'); });
+
+render('all');
+</script>
+</body>
+</html>
